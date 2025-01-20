@@ -1,0 +1,10 @@
+@import url(./reset.css);
+@import url(./header.css);
+@import url(./sectionGrid.css);
+@import url(./footer.css);
+img {
+  width: 100%;
+}
+--root {
+  --primary-color: #45a049;
+}
