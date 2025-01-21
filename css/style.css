@@ -2,6 +2,7 @@
 @import url(./header.css);
 @import url(./sectionGrid.css);
 @import url(./footer.css);
+@import url(./cart.css);
 img {
   width: 100%;
 }

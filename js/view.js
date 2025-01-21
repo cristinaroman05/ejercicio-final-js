@@ -8,19 +8,23 @@ function printOnePlant(plant, dom) {
   const img = document.createElement("img");
   img.src = plant.image;
   img.alt = plant.nombre;
+  img.dataset.url = plant.image;
   figure.appendChild(img);
 
   const h3 = document.createElement("h3");
-  h3.textContent = plant.name;
+  h3.textContent = plant.nombre;
+  h3.dataset.name = plant.nombre;
 
   const p = document.createElement("p");
   p.textContent = plant.description;
 
   const p2 = document.createElement("p");
   p2.textContent = `Precio: ${plant.precio} €`;
+  p2.dataset.price = plant.precio;
 
   const button = document.createElement("button");
   button.textContent = "Agregar al carrito";
+  button.dataset.id = plant.id;
 
   article.append(figure, h3, p, p2, button);
   dom.appendChild(article);
