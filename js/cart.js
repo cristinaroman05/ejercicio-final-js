@@ -12,24 +12,43 @@ function printOneItemCart(item, dom) {
 
   const div = document.createElement("div");
   const h3 = document.createElement("h3");
-  h3.textContent = item.name;
+  h3.textContent = item.nombre;
   const span = document.createElement("span");
-  span.textContent = `Precio: ${item.price}`;
+  span.textContent = `Precio: ${item.precio}€`;
   div.append(h3, span);
 
   const button = document.createElement("button");
   button.classList = "remove-button";
   button.textContent = "Eliminar";
-
+  button.dataset.id = item.id;
+  button.addEventListener("click", removeFromCart);
   article.append(figure, div, button);
   dom.appendChild(article);
 }
 
 function printAllItemsCart(list, dom) {
+  if (cartItems === "") {
+    cartSection.classList.add = "empty-cart";
+  }
+  dom.innerHTML = "";
   list.forEach((item) => printOneItemCart(item, dom));
 }
 buttonAddCart.forEach((button) => {
-  button.addEventListener("click", addToCart());
+  button.addEventListener("click", addToCart);
 });
 
-function addToCart(event) {}
+function addToCart(event) {
+  let item = Number(event.target.dataset.id);
+  let plantAdded = plantas.find((plant) => plant.id === item);
+  cartItems.push(plantAdded);
+  console.log(cartItems);
+  printAllItemsCart(cartItems, cartSection);
+}
+function removeFromCart(event) {
+  let item = Number(event.target.dataset.id);
+  let itemSelected = cartItems.findIndex((plant) => plant.id === item);
+  if (itemSelected !== -1) {
+    cartItems.splice(itemSelected, 1);
+    printAllItemsCart(cartItems, cartSection);
+  }
+}

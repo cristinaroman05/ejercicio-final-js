@@ -9,6 +9,9 @@ header {
   figure img {
     max-width: 150px;
   }
+  i {
+    color: white;
+  }
   nav ul {
     list-style: none;
     margin: 0;
