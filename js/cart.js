@@ -1,5 +1,7 @@
 const buttonAddCart = document.querySelectorAll(".grid article button");
 const cartSection = document.querySelector("#cart .cart-items");
+const buttonCart = document.querySelector(".cartIcon");
+const cartAside = document.querySelector("#cart");
 const cartItems = [];
 
 function printOneItemCart(item, dom) {
@@ -43,6 +45,7 @@ function addToCart(event) {
   cartItems.push(plantAdded);
   console.log(cartItems);
   printAllItemsCart(cartItems, cartSection);
+  showCart();
 }
 function removeFromCart(event) {
   let item = Number(event.target.dataset.id);
@@ -51,4 +54,9 @@ function removeFromCart(event) {
     cartItems.splice(itemSelected, 1);
     printAllItemsCart(cartItems, cartSection);
   }
+}
+buttonCart.addEventListener("click", showCart);
+
+function showCart(event) {
+  cartAside.classList.toggle("show");
 }

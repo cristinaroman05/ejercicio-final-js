@@ -10,7 +10,11 @@
   overflow-y: scroll;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 1;
+
   figure {
     display: flex;
     width: 50px;
@@ -88,6 +92,10 @@
       }
     }
   }
+}
+#cart.show {
+  transform: translateX(0);
+  opacity: 1;
 }
 .empty-cart {
   text-align: center;
