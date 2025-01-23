@@ -2,6 +2,7 @@ const buttonAddCart = document.querySelectorAll(".grid article button");
 const cartSection = document.querySelector("#cart .cart-items");
 const buttonCart = document.querySelector(".cartIcon");
 const cartAside = document.querySelector("#cart");
+const totalSpan = document.querySelector("#cart .cart-total-price");
 const cartItems = [];
 
 function printOneItemCart(item, dom) {
@@ -45,7 +46,8 @@ function addToCart(event) {
   cartItems.push(plantAdded);
   console.log(cartItems);
   printAllItemsCart(cartItems, cartSection);
-  showCart();
+  totalCart();
+  /* showCart(); */
 }
 function removeFromCart(event) {
   let item = Number(event.target.dataset.id);
@@ -59,4 +61,8 @@ buttonCart.addEventListener("click", showCart);
 
 function showCart(event) {
   cartAside.classList.toggle("show");
+}
+function totalCart() {
+  let total = cartItems.reduce((total, item) => total + item.precio, 0);
+  totalSpan.textContent = total;
 }
