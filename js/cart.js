@@ -128,7 +128,11 @@ function updateQuantity(id, change) {
   totalCart();
 }
 function shopDone(event) {
-  alert("Compra realizada correctamente");
+  if (cartItems.length === 0) {
+    alert("No hay productos en el carrito para comprar");
+  } else {
+    alert("Compra realizada correctamente");
+  }
   cartItems.splice(0, cartItems.length);
   printAllItemsCart(cartItems, cartSection);
   totalCart();
