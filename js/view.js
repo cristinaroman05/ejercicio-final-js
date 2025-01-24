@@ -11,7 +11,7 @@ function printOnePlant(plant, dom) {
   figure.appendChild(img);
 
   const h3 = document.createElement("h3");
-  h3.textContent = plant.name;
+  h3.textContent = plant.nombre;
 
   const p = document.createElement("p");
   p.textContent = plant.description;
@@ -21,6 +21,7 @@ function printOnePlant(plant, dom) {
 
   const button = document.createElement("button");
   button.textContent = "Agregar al carrito";
+  button.dataset.id = plant.id;
 
   article.append(figure, h3, p, p2, button);
   dom.appendChild(article);
